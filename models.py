@@ -23,7 +23,7 @@ class Pet(db.Model):
         db.Integer,
         primary_key=True,
         autoincrement=True)
-        
+
     name = db.Column(
         db.Text,
         nullable=False
@@ -42,6 +42,11 @@ class Pet(db.Model):
     age = db.Column(
         db.Text,
         db.CheckConstraint("age IN ('baby', 'young', 'adult', 'senior')"),
+        nullable=False
+    )
+
+    notes = db.Column(
+        db.Text,
         nullable=False
     )
 

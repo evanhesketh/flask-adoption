@@ -2,14 +2,14 @@
 
 {% block title %}User List{% endblock %}
 
-{% block content %} 
+{% block content %}
     <h1>Pets</h1>
         {% for pet in pets%}
         <div>
             <image src="{{pet.photo_url}}"></image>
             <p>{{ pet.name}} <b>{% if pet.available %}is Available{% endif %} </b></p>
         </div>
-        
+
         {% endfor %}
-    <a class="btn btn-primary" href="/users/new">Add user</a>
+    <a class="btn btn-primary" href="/add">Add a pet</a>
 {% endblock %}
