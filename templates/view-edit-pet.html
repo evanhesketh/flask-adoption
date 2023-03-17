@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}User List{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-4" style="display:inline">
+        <image src="{{ pet.photo_url }}" style="width:100%"></image>
+    </div>
+    <div class="col-4" style="display:inline">
+        <h1>{{ pet.name }}</h1>
+        <h2>Age: {{ pet.age }}</h2>
+        <h2>Species: {{ pet.species }}</h2>
+    </div>
+</div>
+<br>
+<form id="pet-edit-form" method="POST" >
+    {{ form.hidden_tag() }}
+
+    {% for field in form
+    if field.widget.input_type != 'hidden' %}
+
+    <p>
+        {{ field.label }}
+        {{ field }}
+
+        {% for error in field.errors %}
+        {{ error }}
+        {% endfor %}
+    </p>
+
+    {% endfor %}
+    <a class="btn btn-light" href="/">Home</a>
+    <button type="submit" class="btn btn-primary">Edit Pet</button>
+</form>
+{% endblock %}

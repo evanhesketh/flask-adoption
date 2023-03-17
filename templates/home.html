@@ -4,12 +4,13 @@
 
 {% block content %}
     <h1>Pets</h1>
+    <div class="row">
         {% for pet in pets%}
-        <div>
-            <image src="{{pet.photo_url}}"></image>
-            <p>{{ pet.name}} <b>{% if pet.available %}is Available{% endif %} </b></p>
+        <div class="col-4">
+            <image src="{{pet.photo_url}}" style="width:100%"></image>
+            <p><a href="/{{pet.id}}"> {{pet.name}}</a> <b>{% if pet.available == True %}is Available{% endif %} </b></p>
         </div>
-
         {% endfor %}
+    </div>
     <a class="btn btn-primary" href="/add">Add a pet</a>
 {% endblock %}
