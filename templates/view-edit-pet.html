@@ -14,20 +14,20 @@
     </div>
 </div>
 <br>
-<form id="pet-edit-form" method="POST" >
+<form id="pet-edit-form" method="POST">
     {{ form.hidden_tag() }}
 
     {% for field in form
-    if field.widget.input_type != 'hidden' %}
+        if field.widget.input_type != 'hidden' %}
 
-    <p>
-        {{ field.label }}
-        {{ field }}
+        <p>
+            {{ field.label }}
+            {{ field }}
 
-        {% for error in field.errors %}
-        {{ error }}
-        {% endfor %}
-    </p>
+            {% for error in field.errors %}
+                {{ error }}
+            {% endfor %}
+        </p>
 
     {% endfor %}
     <a class="btn btn-light" href="/">Home</a>
